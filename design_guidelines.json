@@ -1,0 +1,140 @@
+{
+  "theme_strategy": "The application supports both Dark and Light modes, toggleable via superadmin settings. The Dark mode follows the 'Retro-Futurism/Terminal' archetype mixed with 'Layered Elevation' for low eye strain during long NOC monitoring sessions. The Light mode uses the 'Swiss & High-Contrast' archetype—clinical, stark, and objective.",
+  "typography": {
+    "pairing": {
+      "headings": "IBM Plex Sans",
+      "body_and_metrics": "JetBrains Mono"
+    },
+    "reasoning": "IBM Plex Sans provides authoritative, highly legible headings for an enterprise environment. JetBrains Mono is strictly used for all body text, IP addresses, MAC addresses, and live metrics to ensure perfect tabular alignment and a technical NOC aesthetic.",
+    "hierarchy": {
+      "h1": "text-3xl sm:text-4xl tracking-tight font-semibold",
+      "h2": "text-2xl sm:text-3xl tracking-tight font-medium",
+      "h3": "text-xl font-medium",
+      "widget_title": "text-xs sm:text-sm uppercase tracking-[0.2em] font-bold text-muted-foreground",
+      "metric_value": "text-4xl sm:text-5xl font-light tracking-tighter font-mono",
+      "body": "text-sm font-mono leading-relaxed",
+      "tiny": "text-xs font-mono"
+    }
+  },
+  "colors": {
+    "dark_mode": {
+      "background": "240 10% 4%",
+      "foreground": "0 0% 98%",
+      "card": "240 10% 6%",
+      "card-foreground": "0 0% 98%",
+      "popover": "240 10% 6%",
+      "popover-foreground": "0 0% 98%",
+      "primary": "135 100% 50%",
+      "primary-foreground": "240 10% 4%",
+      "secondary": "240 10% 12%",
+      "secondary-foreground": "0 0% 98%",
+      "muted": "240 10% 12%",
+      "muted-foreground": "240 5% 65%",
+      "accent": "240 10% 16%",
+      "accent-foreground": "0 0% 98%",
+      "destructive": "350 100% 60%",
+      "destructive-foreground": "0 0% 100%",
+      "warning": "45 100% 50%",
+      "border": "240 10% 15%",
+      "input": "240 10% 15%",
+      "ring": "135 100% 50%"
+    },
+    "light_mode": {
+      "background": "0 0% 100%",
+      "foreground": "240 10% 4%",
+      "card": "0 0% 98%",
+      "card-foreground": "240 10% 4%",
+      "popover": "0 0% 100%",
+      "popover-foreground": "240 10% 4%",
+      "primary": "240 100% 50%",
+      "primary-foreground": "0 0% 100%",
+      "secondary": "240 5% 90%",
+      "secondary-foreground": "240 10% 4%",
+      "muted": "240 5% 90%",
+      "muted-foreground": "240 5% 40%",
+      "accent": "240 5% 85%",
+      "accent-foreground": "240 10% 4%",
+      "destructive": "350 100% 50%",
+      "destructive-foreground": "0 0% 100%",
+      "warning": "45 100% 45%",
+      "border": "240 5% 85%",
+      "input": "240 5% 85%",
+      "ring": "240 100% 50%"
+    },
+    "chart_palettes": {
+      "dark": ["#00FF41", "#00F0FF", "#FF3366", "#FFD700", "#B026FF"],
+      "light": ["#0000FF", "#00A2FF", "#E60033", "#E6AC00", "#7A00E6"]
+    }
+  },
+  "grids_and_layouts": {
+    "strategy": "High Density Grid (Mode B)",
+    "container": "w-full max-w-[2000px] mx-auto p-4 md:p-6 lg:p-8",
+    "dashboard_grid": "grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 or gap-6",
+    "spanning_rules": {
+      "kpi_summary": "col-span-1 md:col-span-2 lg:col-span-1 (Single metric cards)",
+      "primary_chart": "col-span-1 md:col-span-4 lg:col-span-4 row-span-2 (Bandwidth chart)",
+      "feed_list": "col-span-1 md:col-span-4 lg:col-span-2 row-span-2 (Alerts or Activity Logs)"
+    },
+    "alignment": "Strict geometric alignment. Left-align data tables and lists. Card children use h-full to stretch to neighbors."
+  },
+  "components": {
+    "surfaces": "Grid Borders (The Technical Look). Remove standard heavy drop shadows. Use 1px solid borders (`border-border`) with flat backgrounds. High density, no wasted space.",
+    "cards": "Cardless or sharp corners (max `rounded-sm`). Backgrounds strictly match the `card` token. Include a subtle inner 1px border for definition.",
+    "status_badges": "Pill-shaped `rounded-full` with a left-aligned 6px dot. Online = Green dot with pulsing animation. Offline = Red dot. Unknown/Warning = Yellow dot. Text is uppercase mono.",
+    "real_time_charts": "Use Recharts. Area charts with a 0px stroke on the fill gradient. No generic grid lines—use subtle dotted Y-axis lines only. Tooltips must be custom styled with glassmorphism.",
+    "topology_graph": "Use `react-force-graph-2d` for the interactive node graph. Nodes must reflect device status (color-coded). Links should show directional data flow particles if possible.",
+    "data_tables": "Dense rows (`py-2`). IP/MAC/Uptime columns MUST use monospace fonts (`font-mono`). Sticky headers. Hover state on rows: `hover:bg-muted/50 transition-colors`.",
+    "alert_banners": "For critical alerts, use the 'Semantic Color-Aware' pattern: a solid destructive background with high-contrast foreground, skipping rounded corners for a sharp, urgent feel.",
+    "forms_and_inputs": "Shadcn components heavily customized to match the technical aesthetic (sharp edges, monospace placeholders, 1px active ring)."
+  },
+  "visual_enhancers": {
+    "borders": "1px solid strokes, never soft shadows. Use `border-border/40` to create subtle grid lines between sections.",
+    "glassmorphism": "Used ONLY for floating elements like dropdowns, custom tooltips, or command palettes (`backdrop-blur-xl bg-background/80 border border-border`). Never use on base cards.",
+    "textures": "In dark mode, apply a very faint SVG noise overlay (opacity 2-3%) over the main layout background to reduce OLED smearing and add a premium matte feel."
+  },
+  "motion": {
+    "micro_interactions": {
+      "pulse": "Active 'Online' status dots use a continuous 2s radial pulse: `@keyframes pulse-ring { 0% { transform: scale(0.8); opacity: 0.5; } 100% { transform: scale(2); opacity: 0; } }`",
+      "critical_flash": "Unacknowledged critical alerts have a subtle background throb (10% to 20% opacity of destructive color) every 1s.",
+      "hover": "Buttons and links use `transition: background-color 0.15s ease, color 0.15s ease`.",
+      "page_transitions": "Staggered fade-up for grid items (`framer-motion` or simple CSS animation delays)."
+    }
+  },
+  "3d_libraries_and_charts": {
+    "charts": "recharts (Install: `yarn add recharts`) - Required for bandwidth area charts.",
+    "topology": "react-force-graph-2d (Install: `yarn add react-force-graph-2d`) - Required for the interactive network map.",
+    "icons": "lucide-react (default) OR @phosphor-icons/react for a more technical look."
+  },
+  "accessibility": {
+    "contrast": "Text over backgrounds must meet APCA standards. Do not use pure grey on grey. Warning yellows must be darkened slightly in light mode for readability.",
+    "focus_states": "All interactive elements must have a sharp 2px focus ring (`focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none`).",
+    "motion": "Wrap continuous animations (like pulsing dots) in `@media (prefers-reduced-motion: no-preference)`."
+  },
+  "media": {
+    "images": [
+      {
+        "url": "https://images.unsplash.com/photo-1456428746267-a1756408f782?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzZ8MHwxfHNlYXJjaHw0fHxhYnN0cmFjdCUyMG5ldHdvcmslMjB0b3BvbG9neSUyMG5vZGVzfGVufDB8fHx8MTc4NDI2ODkwOXww&ixlib=rb-4.1.0&q=85",
+        "description": "Green and black abstract network node mesh",
+        "category": "Auth Page Background (Dark Mode)"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1639066648921-82d4500abf1a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHwyfHxzZXJ2ZXIlMjByb29tJTIwZGFyayUyMGNpbmVtYXRpY3xlbnwwfHx8fDE3ODQyNjg5MDl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Large array of electronic server equipment with green lights",
+        "category": "Empty State or Agent Installation Guide Context"
+      }
+    ],
+    "rules": "Never use placeholder text for logos or missing images. Use these provided Unsplash images."
+  },
+  "instructions_to_main_agent": [
+    "1. Initialize the project with Next.js/React and Tailwind CSS. Setup `next-themes` for Dark/Light mode toggle.",
+    "2. Inject the provided Tailwind colors from this JSON directly into `index.css` under `@layer base`, replacing defaults.",
+    "3. Install fonts: IBM Plex Sans and JetBrains Mono via Google Fonts or standard imports. Map them in Tailwind config.",
+    "4. Build the core Dashboard layout (Sidebar + Header + Main Area) strictly using the High Density Grid rules.",
+    "5. Implement bilingual support (ID/EN) using a standard i18n library or React context for the dictionary.",
+    "6. Build custom components: Cardless widgets, pulsing status badges, and dense monospace data tables.",
+    "7. Integrate `react-force-graph-2d` for the Network Topology Map page.",
+    "8. Integrate `recharts` for the real-time bandwidth charts on the dashboard.",
+    "9. Ensure all buttons, forms, and interactive widgets have `data-testid` attributes."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": "Avoid generic AI-slop outputs. Use 1px borders, sharp corners (max 4px radius), and high-contrast monospace fonts for metrics. Never use pure #000000; use the specific background tokens. Do not center-align the app container. Implement robust hover/focus states. Use sonner for alerts/toasts. Do not apply universal `transition: all`. Every interactive element must include a `data-testid`."
+}
